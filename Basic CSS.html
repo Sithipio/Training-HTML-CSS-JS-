@@ -1,0 +1,79 @@
+<h1>Cascading Style Sheets</h1>
+
+<h2 style="color:red;">Зміна кольору тексту</h2>
+
+<p>Cелектори CSS для зміни стилізації елементів:</p>
+<style>
+  h2 {
+    color: blue;
+  }
+</style> 
+<h2>Зміна кольору тексту згідно селектора</h2>
+
+<p>Використання селектора класу в CSS для стилізації елемента:</p>
+<style>
+  .brown-text {
+    color: brown;
+  }
+</style> 
+<h2 class="brown-text">Зміна кольору тексту згідно селектора класу</h2>
+
+<p>Зміна розміру шрифта:</p>
+<style>
+.hugeText {
+  font-size: 35px;
+} 
+</style>
+<p class="hugeText"> Великий шрифт </p>
+
+<p>Зміна шрифта:</p>
+<style>
+.monospaceText {
+  font-family: monospace;
+} 
+</style>
+<p class="monospaceText"> Шрифт змінений на monospace</p>
+
+<p> Імпорт шрифта з Google: </p>
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+<style>
+.googleText
+  {
+    font-family: Lobster, sans-serif;
+	<!-- При недоступності першого шрифта (Lobster), буде використовуватися другий (sans-serif) -->
+  }
+</style>
+<p class="googleText"> Використання шрифта з сервісу Google </p>
+
+<p> Нижче реалізація зміни розміру зображення в коді: </p>
+<style>
+.image
+{
+	width: 200px;
+	height: 150px;
+}
+</style>
+<img class="image" src="https://content.sportslogos.net/news/2015/06/dragons-header.jpg">
+
+<p>Додамо рамки навколо елеменів і після закруглені кути (використаємо минуле зображення):</p>
+<style>
+.image1
+{
+	width: 250px;
+	height: 180px;
+}
+.imageBorder
+{
+	border-color: red;
+    border-width: 5px;
+    border-style: solid;
+	border-radius: 30px;
+<!-- Перші три рядки зверху можна замінити одним - border: 5px solid red; - розмір, стиль, колір
+	border-radius - відповідає за заокруглення
+	Заокруглення можна також задавати у відсотковому відношенні border-radius: 50%;
+	-->
+}
+</style>
+<!--Можна вказати кілька класів елементу за допомогою його атрибута class, вставляючи пробели між іменами класів-->
+<img class="image1 imageBorder" src="https://content.sportslogos.net/news/2015/06/dragons-header.jpg">
+
