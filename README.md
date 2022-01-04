@@ -1,5 +1,5 @@
 # Welcome to my repository!
 
-## Here I learn HTML, CSS and JavaScript ##
+## Here I learn HTML, CSS and JavaScript
 
-### Thanks for your visit ###
+### Thanks for your visit
