@@ -1,0 +1,53 @@
+<a href="D:\GitHub\Training-HTML-CSS-JS-/Basic CSS.html" style="font-size:25px"> Повернутися на сторінку Basic CSS</a>
+
+<!--
+<p>Пріоритет одного стилю над іншим</p>
+<style>
+  body {
+    background-color: black;
+    font-family: monospace;
+    color: green;
+  }
+    .pink-text {
+      color: pink;
+    }
+  .blue-text {
+    color: blue;
+  }
+<!-- .pink-text - це по суті короткий запис виразу [class="pink-text"]
+</style>
+<h1 class="pink-text blue-text">Hello World!</h1>
+<!--Щоб елементу задати відразу кілька класів в атрибуті class, треба просто перерахувати їх через пробіл.
+<!--Немає значення, який порядок класів вказано в елементі HTML. Тим не менш, порядок оголошень class у розділі <style> - це те, що важливо. Подальша декларація завжди матиме пріоритет над попередньою. Оскільки .blue-text оголошено другим, він перевизначає стилі класу .pink-text-->
+
+<style>
+  body {
+    background-color: black;
+    font-family: monospace;
+    color: green;
+  }
+  .pink-text {
+    color: pink;
+  }
+  .blue-text {
+    color: blue;
+  }
+  #orange-text {
+    color: orange;
+	<!-- #orange-text - це по суті короткий запис виразу [[id="orange-text"]-->
+  }
+</style>
+<h1 class="pink-text blue-text" id="orange-text">Hello World!</h1>
+<!--Неважливо, оголошувати цей CSS вище або нижче класу рожевого тексту, оскільки атрибут id матиме пріоритет над класами. Але якщо прописати кілька окремих стилів для id, то тут так само діятиме правило черговості.-->
+
+<!-- Вбудовані стилі (inline style) мають пріорітет над стилями для id та для class-->
+<h1 id="orange-text" class="pink-text blue-text" style="color:white">Hello World!</h1>
+
+<!--Перевизначення решти стилів, використовуючи ключове слово !important</p> -->
+<!-- Коли необхідно переконатися, що елемент має певний CSS, ви можете використовувати прапор !important. Потрібно намагайтися уникати цього прийому. Використовувати його лише у крайніх випадках. Одні стилі, задані з прапором !important перебиваються іншими стилями з таким же прапором у порядку черговості-->
+<!--  .pink-text {
+    color: pink !important;
+  }
+  -->
+  
+  
