@@ -407,4 +407,172 @@ if (num > 10 | | num < 5) {
    return "No";
 } return "Yes";
 
-//
+//Умова else if
+if (num > 15) {
+  return "Bigger than 15";
+} 
+else if (num < 5) { 
+  return "Smaller than 5"; 
+} 
+else { 
+  return "Between 5 and 15"; 
+}
+
+//Декілька умов else if
+function testSize(num) {
+if (num < 5) {
+  return "Tiny";
+}
+else if (num < 10) {
+  return "Small";
+}
+else if (num < 15) {
+  return "Medium";
+}
+else if (num < 20) {
+  return "Large";
+}
+else if ("Huge") {
+  return "Huge";
+}
+  return "Change Me";
+}
+
+//Гольф-код
+//У грі в гольф кожна лунка має par (номінал), що означає середню кількість strokes (ударів), виконати які, ймовірно, необхідно гравцеві, щоб виграти гру. Залежно від того, наскільки вище або нижче par кількості strokes гравця, результату присвоюється те чи інше прізвисько
+/* 
+strokes			result
+1				"Hole-in-one!"
+<= par - 2		"Eagle"
+par - 1			"Birdie"
+par				"Par"
+par + 1			"Bogey"
+par + 2			"Double Bogey"
+>= par + 3		"Go Home!"
+*/
+var names = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home!"];
+function golfScore(par, strokes) {
+if (strokes === 1) {
+  return names[0];
+}
+  else if (strokes <= par -2) {
+    return names[1];
+  }
+    else if (strokes === par-1) {
+      return names[2];
+    }
+      else if (strokes === par) {
+        return names[3];
+      }
+        else if (strokes === par + 1) {
+          return names[4];
+        }
+          else if (strokes === par +2) {
+            return names[5];
+          }
+            else if (strokes >= par + 3) {
+              return names[6];
+            }
+
+  return "Change Me";
+}
+golfScore(5, 4);
+
+//Вибір багатьох варіантів за допомогою операторів switch
+switch(lowercaseLetter) {
+  case "a":
+    console.log("A");
+    break;
+  case "b":
+    console.log("B");
+    break;
+}
+//Умови case перевіряються із суворою рівністю ( === ). Оператор break вказує на JavaScript, що слід припинити всі подальші перевірки. Якщо break відсутній, буде виконано наступний оператор
+function caseInSwitch(val) {
+  var answer = "";
+  switch (val) {
+    case 1:
+      answer = "alpha";
+      break;
+    case 2:
+      answer = "beta";
+      break;
+    case 3:
+      answer = "gamma";
+      break;
+    case 4:
+      answer = "delta";
+      break;
+  }
+  return answer;
+}
+caseInSwitch(1);
+
+//Додавання опції default в операторі switch
+switch (num) {
+   case value1:
+     statement1;
+     break;
+   case value2:
+     statement2;
+     break;
+     // ...
+   default:
+     defaultStatement;
+     break; // Тут break не обов'язковий, але засоби перевірки коду можуть скаржитися на його відсутність
+}
+//В операторі switch може бути недоцільно вказувати всі можливі значення в якості операторів case (їх може бути просто дуже багато). Замість цього можна додати оператор default, який буде виконуватися, якщо не знайдено співпадаючим операторів case. Оператор default має бути останньою умовою
+function switchOfStuff(val) {
+  var answer = "";
+switch (val) {
+  case "a":
+  return "apple";
+  break;
+  case "b":
+  return "bird";
+    break;
+  case "c":
+  return "cat"
+    break;;
+  default:
+  return "stuff";
+  break;
+}
+  return answer;
+}
+switchOfStuff(1);
+
+//Декілька ідентичних параметрів в операторах switch
+//Якщо у конструкції switch оператор break не вказаний в операторі case, наступний(і) оператор(и) case виконуються доти, доки не буде виявлено break або кінець конструкції switch. Якщо у вас кілька входжень з тим самим виходом, ви можете представити їх в інструкції switch наступним чином:
+let result = "";
+switch(val) {
+  case 1:
+  case 2:
+  case 3:
+    result = "1, 2, or 3";
+    break;
+  case 4:
+    result = "4 alone";
+} 
+function sequentialSizes(val) {
+  var answer = "";
+switch (val) {
+  case 1:
+  case 2:
+  case 3:
+    return answer = "Low";
+    break;
+  case 4:
+  case 5:
+  case 6:
+  return answer = "Mid";
+  break;
+  case 7:
+  case 8:
+  case 9:
+  return answer = "High";
+  break;
+}
+  return answer;
+}
+sequentialSizes(1);
