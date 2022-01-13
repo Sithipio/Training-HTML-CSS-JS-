@@ -602,3 +602,108 @@ if (count > 0) {
 }
 }
 cc(2); cc(3); cc(7); cc('K'); cc('A');
+
+//Створення об'єктів JavaScript
+//Об'єкти схожі на масиви, за винятком того, що замість використання індексів для доступу та зміни їх даних ви отримуєте доступ до даних в об'єктах через так звані властивості. За великим рахунком, структуру об'єкта можна описати як Ключ-Значення. Тобто, щоб отримати з об'єкта значення певної властивості, треба використовувати ключ цієї властивості (або інакше ім'я)
+var cat = {
+  name: "Whiskers",
+  legs: 4,
+  tails: 1,
+  enemies: ["Water", "Dogs"]
+};
+//Всі імена властивостей в об'єктах автоматично наводяться до типу рядок. Можна опустити лапки для рядкових імен властивостей якщо ці імена не містять пробілів та інших спецсимволів
+
+//Існують два способи доступу до властивостей об'єкта: dot notation (через точку .) and bracket notation (через квадратні дужки [], як у випадку з масивами)
+//Доступ до властивостей об'єкта через точку
+var testObj = {
+  "hat": "ballcap",
+  "shirt": "jersey",
+  "shoes": "cleats"
+};
+var hatValue = testObj.hat; 
+var shirtValue = testObj.shirt;
+
+//Доступ до властивостей об'єкта за допомогою дужок
+//Другий спосіб доступу до властивостей об'єкта – це скобкова нотація ([]). Якщо властивість об'єкта, до якого ви намагаєтесь отримати доступ, має пробіл у своєму імені, вам потрібно буде використовувати нотацію у вигляді дужок. Тим не менш, ви все одно можете використовувати точкову нотацію для доступу до властивостей без пробілів
+const myObj = {
+"Space Name": "Kirk",
+"More Space": "Spock",
+"NoSpace": "USS Enterprise"
+};
+myObj["Space Name"];
+myObj['More Space'];
+myObj["NoSpace"];
+
+//Доступ до властивостей об'єктів через змінні
+//Ще одне використання скобкової нотації для об'єктів – це доступ до властивості, що зберігається як значення змінної
+const dogs = {
+  Fido: "Mutt",
+  Hunter: "Doberman",
+  Snoopie: "Beagle"
+};
+const myDog = "Hunter";
+const myBreed = dogs[myDog];
+console.log(myBreed);
+//Іншим способом використання цієї концепції – це формування імені властивості динамічно під час виконання програми
+const someObj = {
+  propName: "John"
+};
+function propPrefix(str) {
+  const s = "prop";
+  return s + str;
+}
+const someProp = propPrefix("Name"); // return "propName"
+console.log(someObj[someProp]); 
+
+//Додавання нових властивостей до об'єкта JavaScript
+var ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"]
+};
+ourDog.bark = "bow-wow";
+
+//Видалення властивостей з об'єкта JavaScript за допомогою оператора delete
+const ourDog = {
+    "name": "Camper",
+    "legs": 4,
+    "tails": 1,
+    "friends": ["everything!"],
+    "bark": "bow-wow"
+  };
+  delete ourDog.bark;
+  
+//Використання об'єктів для пошуку
+//Об'єкти можна розглядати як сховище ключів/значень, наприклад як словник. Якщо є табличні дані, можна використовувати для пошуку об'єкт, а не оператор switch або ланцюжки if/else. Це найбільш корисно, коли відомо, що вхідні дані обмежені певним діапазоном
+const alpha = {
+  1:"Z",
+  2:"Y",
+  3:"X",
+  4:"W",
+  // ...
+  24:"C",
+  25:"B",
+  26:"A"
+};
+alpha[2]; // Y
+alpha[24]; // C
+const value = 2;
+alpha[value]; // Y
+
+function phoneticLookup(val) {
+  var result = "";
+  var lookup = {
+  "alpha": "Adams",
+  "bravo": "Boston",
+  "charlie": "Chicago",
+  "delta": "Denver",
+  "echo": "Easy",
+  "foxtrot": "Frank"
+  };
+result= lookup[val];
+  return result;
+}
+phoneticLookup("charlie");
+
+//
