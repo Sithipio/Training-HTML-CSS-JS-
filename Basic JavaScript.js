@@ -701,9 +701,131 @@ function phoneticLookup(val) {
   "echo": "Easy",
   "foxtrot": "Frank"
   };
-result= lookup[val];
+result = lookup[val];
   return result;
 }
 phoneticLookup("charlie");
 
-//
+//Перевірка наявності властивостей в об'єкті
+//Іноді корисно перевірити, чи існує властивість даного об'єкта чи ні. Ми можемо використовувати метод об'єктів .hasOwnProperty(propname) для визначення того, чи має цей об'єкт зазначене ім'я властивості. .hasOwnProperty() повертає true або false якщо властивість знайдена чи ні
+const myObj = {
+  top: "hat",
+  bottom: "pants"
+};
+myObj.hasOwnProperty("top"); // true
+myObj.hasOwnProperty("middle"); // false
+
+//Маніпулювання складними об'єктами
+var myMusic = [
+  {
+    "artist": "Billy Joel",
+    "title": "Piano Man",
+    "release_year": 1973,
+    "formats": [
+      "CD",
+      "8T",
+      "LP"
+    ],
+    "gold": true
+  },
+  {
+    "artist": "Grandson",
+    "title": "Blue/Water",
+    "release_year": 2003,
+    "formats": [
+      "CD",
+      "8T",
+      "LP"
+    ],
+    "gold": false
+  }
+];
+
+//Доступ до вкладених об'єктів
+const ourStorage = {
+  "desk": {
+  "drawer": "stapler"
+  },
+  "cabinet": {
+  "top drawer": {
+  "folder1": "a file",
+  "folder2": "secrets"
+  },
+  "bottom drawer": "soda"
+  }
+  }; 
+  ourStorage.cabinet["top drawer"].folder2;
+  ourStorage.desk.drawer;
+  
+//Доступ до вкладених масивів
+const ourPets = [
+  {
+    animalType: "cat",
+    names: [
+      "Meowzer",
+      "Fluffy",
+      "Kit-Cat"
+    ]
+  },
+  {
+    animalType: "dog",
+    names: [
+      "Spot",
+      "Bowser",
+      "Frankie"
+    ]
+  }
+];
+ourPets[0].names[1]; // Fluffy
+ourPets[1].names[0]; // Spot
+
+//Колекція записів
+/*
+Напишіть функцію updateRecords, яка приймає id альбом (наприклад, 2548 ), властивість prop (наприклад, artist або tracks ) та value (наприклад, Addicted to Love ) для зміни даних у цій колекції.
+Ваша функція завжди повинна повертати весь об'єкт collection.
+Якщо prop не є tracks, а value не порожнім ( "" ), оновіть або встановіть value для властивості prop цього альбому.
+Якщо prop є tracks, але альбом не має властивості tracks, створіть порожній масив перед додаванням нового значення у відповідну властивість альбому.
+Якщо prop - це tracks а value не пусто ( " " ), додайте value до кінця існуючого масиву tracks.
+Якщо значення порожнє ( " " ), видаліть цю властивість prop з альбому.
+*/
+// Setup
+var collection = {
+  2548: {
+    album: "Slippery When Wet",
+    artist: "Bon Jovi",
+    tracks: [
+      "Let It Rock",
+      "You Give Love a Bad Name"
+    ]
+  },
+  2468: {
+    album: "1999",
+    artist: "Prince",
+    tracks: [
+      "1999",
+      "Little Red Corvette"
+    ]
+  },
+  1245: {
+    artist: "Robert Palmer",
+    tracks: [ ]
+  },
+  5439: {
+    album: "ABBA Gold"
+  }
+};
+// Only change code below this line
+function updateRecords(id, prop, value) {
+  if (prop !== "tracks" && value !== ""){
+    collection[id][prop] = value;
+  } else if (prop === "tracks" && !collection[id][prop]){
+    collection[id][prop] = [value];
+  } else if (prop === "tracks" && value !== "") {
+    collection[id][prop].push(value);
+  } else if (value === "") {
+    delete collection[id][prop];
+  }
+  return collection;
+}
+// Alter values below to test your code
+updateRecords(5439, "artist", "ABBA");
