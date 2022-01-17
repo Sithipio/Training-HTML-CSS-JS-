@@ -829,3 +829,76 @@ function updateRecords(id, prop, value) {
 }
 // Alter values below to test your code
 updateRecords(5439, "artist", "ABBA");
+
+//Ітерації з використанням циклу while
+const ourArray = [];
+let i = 0;
+while (i < 5) { 
+  ourArray.push(i); 
+  i++; 
+}
+
+//Ітерації з використанням циклу for
+//При виклику оператора for вказуються три необов'язкові вирази, розділені точкою з комою: for ([initialization]; [condition]; [final-expression])
+const ourArray = [];
+for (let i = 0; i < 5; i++) { 
+  ourArray.push(i); 
+}
+
+//Перерахування непарних чисел з використанням циклу for
+const ourArray = [];
+for (let i = 0; i < 10; i += 2) { 
+  ourArray.push(i); 
+} 
+
+//Зворотний відлік з використанням циклу for
+const ourArray = [];
+for (let i = 10; i > 0; i -= 2) {
+  ourArray.push(i);
+}
+
+//Перерахування масивів за допомогою циклу for
+const arr = [10, 9, 8, 7, 6];
+for (let i = 0; i < arr.length; i++) { 
+  console.log(arr[i]); 
+}
+var myArr = [ 2, 3, 4, 5, 6];
+var total = 0;
+for (var i = 0; i < myArr.length; i++) {
+  total += myArr[i];
+}
+
+//Вкладені цикли for
+const arr = [
+  [1, 2], 
+  [3, 4], 
+  [5, 6]
+];
+for (let i = 0; i < arr.length; i++) { 
+  for (let j=0; j < arr[i].length; j++) { 
+    console.log(arr[i][j]); 
+  } 
+}
+function multiplyAll(arr) {
+  var product = 1;
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr[i].length; j++) {
+        product *= arr[i][j];      
+      }
+  }
+  return product;
+}
+    multiplyAll([
+      [1, 2],
+      [3, 4],
+      [5, 6, 7]
+]);
+
+//Цикли do...while
+const ourArray = [];
+  let i = 0;
+  do {
+    ourArray.push(i);
+    i++;
+  } while (i < 5);
+//Основну різницю між циклами while та do...while можна позначити так: перший тип циклів while може не виконати жодної ітерації, якщо умова не виконується ніколи, а ось другий тип циклів do..while навпаки, обов'язково виконається хоч один раз навіть якщо умова ніколи не буде істинною
