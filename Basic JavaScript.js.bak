@@ -403,7 +403,7 @@ if (num < 5) {
 // else
 return "Yes";
 //поверне "Yes" тільки в тому випадку, якщо значення num знаходиться між 5 та 10 (включаючи 5 та 10). Та ж логіка може бути записана як:
-if (num > 10 | | num < 5) {
+if (num > 10 || num < 5) {
    return "No";
 } return "Yes";
 
@@ -602,3 +602,303 @@ if (count > 0) {
 }
 }
 cc(2); cc(3); cc(7); cc('K'); cc('A');
+
+//Створення об'єктів JavaScript
+//Об'єкти схожі на масиви, за винятком того, що замість використання індексів для доступу та зміни їх даних ви отримуєте доступ до даних в об'єктах через так звані властивості. За великим рахунком, структуру об'єкта можна описати як Ключ-Значення. Тобто, щоб отримати з об'єкта значення певної властивості, треба використовувати ключ цієї властивості (або інакше ім'я)
+var cat = {
+  name: "Whiskers",
+  legs: 4,
+  tails: 1,
+  enemies: ["Water", "Dogs"]
+};
+//Всі імена властивостей в об'єктах автоматично наводяться до типу рядок. Можна опустити лапки для рядкових імен властивостей якщо ці імена не містять пробілів та інших спецсимволів
+
+//Існують два способи доступу до властивостей об'єкта: dot notation (через точку .) and bracket notation (через квадратні дужки [], як у випадку з масивами)
+//Доступ до властивостей об'єкта через точку
+var testObj = {
+  "hat": "ballcap",
+  "shirt": "jersey",
+  "shoes": "cleats"
+};
+var hatValue = testObj.hat; 
+var shirtValue = testObj.shirt;
+
+//Доступ до властивостей об'єкта за допомогою дужок
+//Другий спосіб доступу до властивостей об'єкта – це скобкова нотація ([]). Якщо властивість об'єкта, до якого ви намагаєтесь отримати доступ, має пробіл у своєму імені, вам потрібно буде використовувати нотацію у вигляді дужок. Тим не менш, ви все одно можете використовувати точкову нотацію для доступу до властивостей без пробілів
+const myObj = {
+"Space Name": "Kirk",
+"More Space": "Spock",
+"NoSpace": "USS Enterprise"
+};
+myObj["Space Name"];
+myObj['More Space'];
+myObj["NoSpace"];
+
+//Доступ до властивостей об'єктів через змінні
+//Ще одне використання скобкової нотації для об'єктів – це доступ до властивості, що зберігається як значення змінної
+const dogs = {
+  Fido: "Mutt",
+  Hunter: "Doberman",
+  Snoopie: "Beagle"
+};
+const myDog = "Hunter";
+const myBreed = dogs[myDog];
+console.log(myBreed);
+//Іншим способом використання цієї концепції – це формування імені властивості динамічно під час виконання програми
+const someObj = {
+  propName: "John"
+};
+function propPrefix(str) {
+  const s = "prop";
+  return s + str;
+}
+const someProp = propPrefix("Name"); // return "propName"
+console.log(someObj[someProp]); 
+
+//Додавання нових властивостей до об'єкта JavaScript
+var ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"]
+};
+ourDog.bark = "bow-wow";
+
+//Видалення властивостей з об'єкта JavaScript за допомогою оператора delete
+const ourDog = {
+    "name": "Camper",
+    "legs": 4,
+    "tails": 1,
+    "friends": ["everything!"],
+    "bark": "bow-wow"
+  };
+  delete ourDog.bark;
+  
+//Використання об'єктів для пошуку
+//Об'єкти можна розглядати як сховище ключів/значень, наприклад як словник. Якщо є табличні дані, можна використовувати для пошуку об'єкт, а не оператор switch або ланцюжки if/else. Це найбільш корисно, коли відомо, що вхідні дані обмежені певним діапазоном
+const alpha = {
+  1:"Z",
+  2:"Y",
+  3:"X",
+  4:"W",
+  // ...
+  24:"C",
+  25:"B",
+  26:"A"
+};
+alpha[2]; // Y
+alpha[24]; // C
+const value = 2;
+alpha[value]; // Y
+
+function phoneticLookup(val) {
+  var result = "";
+  var lookup = {
+  "alpha": "Adams",
+  "bravo": "Boston",
+  "charlie": "Chicago",
+  "delta": "Denver",
+  "echo": "Easy",
+  "foxtrot": "Frank"
+  };
+result = lookup[val];
+  return result;
+}
+phoneticLookup("charlie");
+
+//Перевірка наявності властивостей в об'єкті
+//Іноді корисно перевірити, чи існує властивість даного об'єкта чи ні. Ми можемо використовувати метод об'єктів .hasOwnProperty(propname) для визначення того, чи має цей об'єкт зазначене ім'я властивості. .hasOwnProperty() повертає true або false якщо властивість знайдена чи ні
+const myObj = {
+  top: "hat",
+  bottom: "pants"
+};
+myObj.hasOwnProperty("top"); // true
+myObj.hasOwnProperty("middle"); // false
+
+//Маніпулювання складними об'єктами
+var myMusic = [
+  {
+    "artist": "Billy Joel",
+    "title": "Piano Man",
+    "release_year": 1973,
+    "formats": [
+      "CD",
+      "8T",
+      "LP"
+    ],
+    "gold": true
+  },
+  {
+    "artist": "Grandson",
+    "title": "Blue/Water",
+    "release_year": 2003,
+    "formats": [
+      "CD",
+      "8T",
+      "LP"
+    ],
+    "gold": false
+  }
+];
+
+//Доступ до вкладених об'єктів
+const ourStorage = {
+  "desk": {
+  "drawer": "stapler"
+  },
+  "cabinet": {
+  "top drawer": {
+  "folder1": "a file",
+  "folder2": "secrets"
+  },
+  "bottom drawer": "soda"
+  }
+  }; 
+  ourStorage.cabinet["top drawer"].folder2;
+  ourStorage.desk.drawer;
+  
+//Доступ до вкладених масивів
+const ourPets = [
+  {
+    animalType: "cat",
+    names: [
+      "Meowzer",
+      "Fluffy",
+      "Kit-Cat"
+    ]
+  },
+  {
+    animalType: "dog",
+    names: [
+      "Spot",
+      "Bowser",
+      "Frankie"
+    ]
+  }
+];
+ourPets[0].names[1]; // Fluffy
+ourPets[1].names[0]; // Spot
+
+//Колекція записів
+/*
+Напишіть функцію updateRecords, яка приймає id альбом (наприклад, 2548 ), властивість prop (наприклад, artist або tracks ) та value (наприклад, Addicted to Love ) для зміни даних у цій колекції.
+Ваша функція завжди повинна повертати весь об'єкт collection.
+Якщо prop не є tracks, а value не порожнім ( "" ), оновіть або встановіть value для властивості prop цього альбому.
+Якщо prop є tracks, але альбом не має властивості tracks, створіть порожній масив перед додаванням нового значення у відповідну властивість альбому.
+Якщо prop - це tracks а value не пусто ( " " ), додайте value до кінця існуючого масиву tracks.
+Якщо значення порожнє ( " " ), видаліть цю властивість prop з альбому.
+*/
+// Setup
+var collection = {
+  2548: {
+    album: "Slippery When Wet",
+    artist: "Bon Jovi",
+    tracks: [
+      "Let It Rock",
+      "You Give Love a Bad Name"
+    ]
+  },
+  2468: {
+    album: "1999",
+    artist: "Prince",
+    tracks: [
+      "1999",
+      "Little Red Corvette"
+    ]
+  },
+  1245: {
+    artist: "Robert Palmer",
+    tracks: [ ]
+  },
+  5439: {
+    album: "ABBA Gold"
+  }
+};
+// Only change code below this line
+function updateRecords(id, prop, value) {
+  if (prop !== "tracks" && value !== ""){
+    collection[id][prop] = value;
+  } else if (prop === "tracks" && !collection[id][prop]){
+    collection[id][prop] = [value];
+  } else if (prop === "tracks" && value !== "") {
+    collection[id][prop].push(value);
+  } else if (value === "") {
+    delete collection[id][prop];
+  }
+  return collection;
+}
+// Alter values below to test your code
+updateRecords(5439, "artist", "ABBA");
+
+//Ітерації з використанням циклу while
+const ourArray = [];
+let i = 0;
+while (i < 5) { 
+  ourArray.push(i); 
+  i++; 
+}
+
+//Ітерації з використанням циклу for
+//При виклику оператора for вказуються три необов'язкові вирази, розділені точкою з комою: for ([initialization]; [condition]; [final-expression])
+const ourArray = [];
+for (let i = 0; i < 5; i++) { 
+  ourArray.push(i); 
+}
+
+//Перерахування непарних чисел з використанням циклу for
+const ourArray = [];
+for (let i = 0; i < 10; i += 2) { 
+  ourArray.push(i); 
+} 
+
+//Зворотний відлік з використанням циклу for
+const ourArray = [];
+for (let i = 10; i > 0; i -= 2) {
+  ourArray.push(i);
+}
+
+//Перерахування масивів за допомогою циклу for
+const arr = [10, 9, 8, 7, 6];
+for (let i = 0; i < arr.length; i++) { 
+  console.log(arr[i]); 
+}
+var myArr = [ 2, 3, 4, 5, 6];
+var total = 0;
+for (var i = 0; i < myArr.length; i++) {
+  total += myArr[i];
+}
+
+//Вкладені цикли for
+const arr = [
+  [1, 2], 
+  [3, 4], 
+  [5, 6]
+];
+for (let i = 0; i < arr.length; i++) { 
+  for (let j=0; j < arr[i].length; j++) { 
+    console.log(arr[i][j]); 
+  } 
+}
+function multiplyAll(arr) {
+  var product = 1;
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr[i].length; j++) {
+        product *= arr[i][j];      
+      }
+  }
+  return product;
+}
+    multiplyAll([
+      [1, 2],
+      [3, 4],
+      [5, 6, 7]
+]);
+
+//Цикли do...while
+const ourArray = [];
+  let i = 0;
+  do {
+    ourArray.push(i);
+    i++;
+  } while (i < 5);
+//Основну різницю між циклами while та do...while можна позначити так: перший тип циклів while може не виконати жодної ітерації, якщо умова не виконується ніколи, а ось другий тип циклів do..while навпаки, обов'язково виконається хоч один раз навіть якщо умова ніколи не буде істинною

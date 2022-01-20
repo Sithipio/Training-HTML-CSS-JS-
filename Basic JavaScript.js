@@ -902,3 +902,63 @@ const ourArray = [];
     i++;
   } while (i < 5);
 //Основну різницю між циклами while та do...while можна позначити так: перший тип циклів while може не виконати жодної ітерації, якщо умова не виконується ніколи, а ось другий тип циклів do..while навпаки, обов'язково виконається хоч один раз навіть якщо умова ніколи не буде істинною
+
+//Пошук профілю
+/*У нас є набір об'єктів, що становлять список контактів. Напишіть функцію lookUpProfile, яка приймає аргументи name і prop.
+Функція повинна перевіряти, чи відповідає name властивості firstName даного контакту і ця властивість prop є властивістю цього об'єкта контакту.
+Якщо обидві ці умови є істинними, поверніть значення цієї властивості.
+Якщо name не відповідає контактам, тоді поверніть No such contact
+Якщо prop не відповідає будь-яким дійсним властивостям об'єкта контакту, знайденого для відповідності name, тоді поверніть No such property
+*/
+var contacts = [
+    {
+        "firstName": "Akira",
+        "lastName": "Laine",
+        "number": "0543236543",
+        "likes": ["Pizza", "Coding", "Brownie Points"]
+    },
+    {
+        "firstName": "Harry",
+        "lastName": "Potter",
+        "number": "0994372684",
+        "likes": ["Hogwarts", "Magic", "Hagrid"]
+    },
+    {
+        "firstName": "Sherlock",
+        "lastName": "Holmes",
+        "number": "0487345643",
+        "likes": ["Intriguing Cases", "Violin"]
+    },
+    {
+        "firstName": "Kristian",
+        "lastName": "Vos",
+        "number": "unknown",
+        "likes": ["JavaScript", "Gaming", "Foxes"]
+    }
+];
+function lookUpProfile(name, prop) {
+    for (var i = 0; i < contacts.length; i++) {
+        if (contacts[i].firstName === name) {
+            if (contacts[i].hasOwnProperty(prop)) {
+                return contacts[i][prop];
+            }
+            else return "No such property";
+        }
+    }
+    return "No such contact";
+    }
+lookUpProfile("Akira", "likes");
+
+//Генерування випадкових дробових чисел за допомогою JavaScript
+//Випадкові числа корисні для створення випадкової поведінки. JavaScript має функцію Math.random() яка генерує випадкове десяткове число в діапазоні >= 0 і < 1. Таким чином, Math.random() може повертати 0 але ніколи не повертати 1 (і ніколи менше 0 або більше 1)
+function randomFraction() {
+return Math.random();
+}
+
+//Генерування цілих чисел за допомогою JavaScript
+//Використовуйте Math.random() для генерації випадкового десяткового числа та функцію Math.floor(), щоб округлити число до його найближчого цілого числа. Math.floor() округляє в меншу сторону, тобто Math.floor(3.01) і Math.floor(3.99) в обох випадках поверне 3
+function randomWholeNum() {
+  return Math.floor (Math.random() * 10);
+}
+
+//
