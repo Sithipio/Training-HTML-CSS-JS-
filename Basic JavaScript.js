@@ -961,4 +961,78 @@ function randomWholeNum() {
   return Math.floor (Math.random() * 10);
 }
 
-//
+//Генерування випадкових цілих чисел в межах діапазону
+Math.floor(Math.random() * (max - min + 1)) + min
+function randomRange(myMin, myMax) {
+  return Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
+}
+var myRandom = randomRange(5, 15);
+
+//Використання функції parseInt()
+//Функція parseInt() аналізує рядок і повертає ціле число у разі успіху
+var a = parseInt("007");
+//Вищезгадана функція перетворює рядок "007" на ціле число 7. Якщо перший символ у рядку не може бути перетворений на число, то функція повертає NaN
+//Також слід зазначити, що переданий рядок не обов'язково повинен містити лише числа. Головна умова – число має бути першим символом. Якщо умова дотримано, то функція parseInt() спробує розпізнати всі можливі числа, доки не зустріне кінець рядка або інший нечисловий символ. Приклад:
+parseInt("") // NaN
+parseInt("str777") // NaN
+parseInt("777.str") // 777
+parseInt("777.111.str") // 777
+function convertToInteger(str) {
+return parseInt(str);
+}
+convertToInteger("56");
+
+//Використання функції parseInt із зазначенням radix
+//Функція parseInt() аналізує рядок та повертає ціле число. Вона приймає другий аргумент radix (розрядність), який визначає базу номера у рядку. radix може бути цілим числом від 2 до 36. Виклик функції має такий вигляд: 
+parseInt(string, radix); 
+//І ось приклад:
+var a = parseInt("11", 2);
+//У змінній radix зазначено, що «11» перебуває у двійковій системі чи базі 2. Цей приклад перетворює рядок «11» на ціле число 3
+function convertToInteger(str) {
+return parseInt(str, 2);
+}
+convertToInteger("10011");
+
+//Використання умовного (тернарного) оператора
+//Умовний оператор, також званий тернарним оператором, може використовуватися як однорядкове вираження if-else. Синтаксис: condition ? statement-if-true : statement-if-false; Наступна функція використовує інструкцію if-else для перевірки умов:
+function findGreater(a, b) {
+   if(a > b) {
+     return "a is greater";
+   }
+   else {
+     return "b is greater or equal";
+   }
+}
+//Це можна переписати за допомогою тернарного оператора:
+function findGreater(a, b) {
+   return a > b ? "a is greater" : "b is greater or equal";
+}
+function checkEqual(a, b) {
+  return a === b ? "Equal" : "Not Equal";
+}
+checkEqual(1, 2);
+
+//Використання декількох умовних (тернарних) операторів
+function findGreaterOrEqual(a, b) {
+  if (a === b) {
+    return "a and b are equal";
+  }
+  else if (a > b) {
+    return "a is greater";
+  }
+  else {
+    return "b is greater";
+  }
+}
+//Вищезгадана функція може бути переписана з використанням декількох тернарних операторів:
+Function findGreaterOrEqual(a, b) {
+   return (a === b) ? "a and b are equal"
+     : (a > b)? "a is greater"
+       : "b is greater";
+}
+function checkSign(num) {
+return (num > 0) ? "positive" : 
+    (num <0) ? "negative": "zero";
+}
+checkSign(10);
+
