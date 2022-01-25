@@ -16,8 +16,34 @@
 <!-- Використання em тегу для тексту курсиву 
 Відображає текст як курсив, тому що браузер застосовує CSS стиль font-style: italic; до елемента -->
 
+<!-- Використання тегу s для тексту закреслення 
+Показує, що частина тексту не дійсна. За допомогою тега s браузер використовує CSS text-decoration: line-through; елемента-->
+
+<!-- Створення горизонтальної лінії за допомогою елемента hr
+Можена використовувати тег hr щоб додати горизонтальну лінію по ширині елемента, що містить її -->
+
+<!-- Регулювання кольору фону. Властивість тексту 
+background-color: rgba(45, 45, 45, 0.1)
+rgba акронім розшифровується як:
+r = червоний
+g = зелений
+b = синій
+a = альфа / рівень непрозорості
+-->
+
+<!-- Зміна розміру тексту в елементі за допомогою властивості font-size -->
+
+<!-- Додавання тіні до карткового елементу 
+ /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+	offset-x (як далеко відкидати тінь горизонтально від елемента), offset-y (як далеко відкидати тінь вертикально від елемента), blur-radius spread-radius та значення кольору в цьому порядку
+	-->
+
 <!--  -->
 
+<!--  -->
+<!--  -->
+<!--  -->
 <!--  -->
 
 <style>
@@ -49,7 +75,7 @@
 <div class="fullCard">
   <div class="cardContent">
     <div class="cardText">
-      <h4>Google</h4>
+      <h4><s>Google</s> Alphabet</h4>
       <p><em>Google was founded by Larry Page and Sergey Brin while they were <u>Ph.D. students</u> at <strong>Stanford University</strong>.</em></p>
     </div>
     <div class="cardLinks">
